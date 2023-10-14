@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign IPA - WTHI3N WEBSITE</title>
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+<meta name="Keywords" content="IPA签名工具,IOS签名工具,APP签名工具,苹果IPA签名工具,苹果IOS签名工具,苹果APP签名工具,企业签名工具,免费签名工具,重签名去锁,windows签名工具,mac签名工具,win/mac平台在线签名,ipa sign,ios sign,app sign,ipa signer,ios signer,app signer,ipa resign,ios resign,app resign,ipa signature,ios signature,app signature"/>
+<meta name="description" content="ios app signer,ipa signer tool,apple developer enterprise certificate sign,app free resign,Windows platform signature,mac platform xcode signature,iphone signer without jailbreak,ipa resign tool"/>
+
+<script type="text/javascript" src="https://sign.ipasign.cc/js/vue.min.js"></script>
+<script type="text/javascript" src="https://sign.ipasign.cc/js/axios.min.js"></script>
+<script type="text/javascript" src="https://sign.ipasign.cc/js/index.js"></script>
+<script type="text/javascript" src="https://sign.ipasign.cc/js/qrcode.min.js"></script>
+    <link rel="stylesheet" href="app.css">
+
+
+    <link rel="canonical" href="https://codepen.io/jh3y/pen/zYKbrer">
+  
+  <link rel="stylesheet" href="css/normalize.min.css">
+
+  <link rel="stylesheet" href="css/tailwind.min.css">
+  
+    <style>
+        /* 可以设置不同的进入和离开动画 */
+        /* 设置持续时间和动画函数 */
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity 0.3s
+        }
+        .fade-enter, .fade-leave-to /* .fade-leave-active, 2.1.8 版本以下 */ {
+            opacity: 0
+        }
+        body {
+            background: rgb(0,0,0);
+background: linear-gradient(36deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 61%, rgba(15,32,39,1) 100%);
+}
+        
+    </style>
+</head>
+<body>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <div id="app">
+        <div class="p-0 container-fluid">
+            <nav class="navbar navbar-dark bg-info navbar-expand-lg"><a href="index.html" target="_self" class="navbar-brand">Sign IPA - WTHI3N website</a></nav>
+            <div class="row mt-5">
+                <div class="col-sm-12 col-md-10 offset-md-1">
+                    <transition name = "fade">
+                        <div v-show="show" role="alert" aria-live="polite" aria-atomic="true" class="alert alert-dismissible alert-info">
+                            <button @click="close" type="button" aria-label="Close" class="close">×</button>
+                            <h1 class="!text-transparent bg-clip-text block font-medium font-title lg:text-7xl shadow-title-r sm:text-5xl text-4xl tracking-tight"> ESIGN DOWNLOAD </h1>
+                            <p>CHỌN FILE VÀ NHẤN <span class="badge badge-secondary">KÍ LIỀN!</span> VÀ ĐẢM BẢO CÓ:</p>
+                            <ul>
+                                <li>➤ file IPA</li>
+                                <li>➤ file P12 và mobileprovision;</li>
+                                <li>➤ chi tiết liên hệ zalo: <a href="https://zalo.me/0378391350" target="_self" class="badge badge-secondary">click here</a> </li>
+                            </ul>
+                            <p>TOOL NÀY KHÔNG CÓ LƯU TRỮ NÊN KÍ XONG LÀ CÀI LIỀN VÔ MÁY DÙM CÁI.</p>
+                            <p>Return to Main Page: 
+                                <a href="index.html" target="_self" class="badge badge-secondary">https://wthi3n.github.io</a></p>
+                            <p>Copyright© <span class="badge badge-secondary">sign.ipasign.cc</span>  </p>   
+                            <p>Mật khẩu thường là <span class="badge badge-secondary">AppleP12.com</span> | <span class="badge badge-secondary">1</span> | <span class="badge badge-secondary">esign</span>  </p>  
+                            <div class="min-h-screen bg-blue-200 flex items-center justify-center">
+                                <div class="box">
+                                  <input  id="key" value="AppleP12.com">
+                                  <button class="btn btn-copy btn-bcopy" id="copy">Copy</button>
+                                </div>
+                              </div>    
+                        </div>  
+                    </transition>
+
+                    <div class="card">
+                        <div class="card-body" v-show="showStep1">
+                            <h4 class="card-title">BƯỚC 1 : CHỌN FILE</h4>
+                            <div class="row mb-3">
+                                <div class="col-sm-12">
+                                    <div class="custom-file b-form-file is-invalid" v-bind:class="ipaCss">
+                                        <input type="file" @change="getFile($event)" ref="ipa" required="required" accept=".ipa" aria-required="true" class="custom-file-input" v-bind:class="ipaCss" id="ipa" style="z-index: -5;">
+                                        <label data-browse="CHỌN" class="custom-file-label" for="ipa">
+                                            <span class="d-block form-file-text" style="pointer-events: none;">{{ ipaText }}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <div class="custom-file b-form-file is-invalid" v-bind:class="p12Css">
+                                        <input type="file" @change="getFile($event)" ref="p12" required="required" accept=".p12" aria-required="true" class="custom-file-input" v-bind:class="p12Css" id="p12" style="z-index: -5;">
+                                        <label data-browse="CHỌN" class="custom-file-label" for="p12">
+                                            <span class="d-block form-file-text" style="pointer-events: none;">{{ p12Text }}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" v-model="password" ref="pwd" placeholder="Nhập mật khẩu - nhấn ở trên để sao chép (AppleP12.com) " required="required" aria-required="true" aria-invalid="true" class="form-control" v-bind:class="pwdCss" id="password"> 
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-sm-12">
+                                    <div class="custom-file b-form-file" v-bind:class="mobCss">
+                                        <input type="file" ref="mob" @change="getFile($event)" required="required" accept=".mobileprovision" aria-required="true" class="custom-file-input" v-bind:class="mobCss" id="mobileprovision" style="z-index: -5;">
+                                        <label data-browse="CHỌN" class="custom-file-label" for="mobileprovision">
+                                            <span class="d-block form-file-text" style="pointer-events: none;">{{ mobText }}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button style="--clr: #7808d0" class="button" @click="upload">
+                                <span class="button__icon-wrapper">
+                                    <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                                        <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                                    </svg>
+                                    
+                                    <svg class="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
+                                       <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                                    </svg>
+                                </span>
+                                KÍ LIỀN
+                            </button>
+
+                        </div>
+
+                        <div class="card-body" v-show="showStep2">
+                            <h4 class="card-title">BƯỚC 2 : ĐANG KÍ</h4>
+                            <div class="progress">
+                                <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ progressBar }}" class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                     v-bind:style="{'width': progressBar + '%'}"><strong>{{ progressBar }}%</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body" v-show="showStep3">
+                            <h4 class="card-title">BƯỚC 3: ĐANG LOAD ĐỢI XÍU</h4>
+                            <svg style="height: 20px" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cog fa-w-16 fa-spin">
+                                    <path fill="currentColor" d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z" class=""></path>
+                            </svg>ĐANG LOAD ĐỢI XÍU
+                        </div>
+
+                        <div class="card-body" v-show="showStep4">
+                            <h4 class="card-title">BƯỚC 4: CÀI ĐẶT ỨNG DỤNG</h4>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h6>SCAN ĐỂ TẢI</h6>
+                                    <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <h6>Copy &amp; NHẤN VÔ LINK Ở DƯỚI ĐỂ ĐẾN TRANG CÀI HOẶC GỬI CHO AI ĐÓ ĐỂ CÀI</h6>
+                                    <a :href="download"
+                                       target="_self" class="d-block mx-auto">{{download}}</a>
+                                    <div style="margin-top: 48px;"><a :href="download_ipa">TẢI IPA</a></div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn mt-3 btn-primary btn-block" @click="index">QUAY VỀ KÍ TIẾP</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                show: true,
+                showStep1: true,
+                showStep2: false,
+                showStep3: false,
+                showStep4: false,
+                progressBar: 0,
+                ipaCss: 'is-invalid',
+                ipaText: 'Chọn file IPA ở nút "CHỌN" bên kia ',
+                p12Css: 'is-invalid',
+                p12Text: 'Chọn file P12 ở nút "CHỌN" bên kia ',
+                pwdCss: 'is-invalid',
+                pwdText: 'Nhập mật khẩu - nhấn ở trên để sao chép',
+                mobCss: 'is-invalid',
+                mobText: 'Chọn file .mobileprovision ở nút chọn bên kia',
+                download: '',
+                download_ipa: '',
+                ipa: '',
+                p12: '',
+                password: '',
+                mobileprovision: '',
+                name: '',
+                identifier: '',
+                unlockValue: 0,
+            },
+            methods: {
+                getFile: function (params) {
+                    console.info(params);
+                    switch (params.srcElement.accept) {
+                        case '.ipa':
+                            if (params.target.files.length > 0) {
+                                this.ipaCss = 'is-valid';
+                                this.ipaText = params.target.files[0].name;
+                                this.ipa = params.target.files[0];
+                            } else {
+                                this.ipaCss = 'is-invalid';
+                                this.ipaText = 'Chọn file IPA ở nút "CHỌN" bên kia ';
+                                this.ipa = '';
+                            }
+                            break;
+                        case '.p12':
+                            if (params.target.files.length > 0) {
+                                this.p12Css = 'is-valid';
+                                this.p12Text = params.target.files[0].name;
+                                this.p12 = params.target.files[0];
+                            } else {
+                                this.p12Css = 'is-invalid';
+                                this.p12Text = 'Chọn file IPA ở nút "CHỌN" bên kia ';
+                                this.p12 = '';
+                            }
+                            break;
+                        case '.mobileprovision':
+                            if (params.target.files.length > 0) {
+                                this.mobCss = 'is-valid';
+                                this.mobText = params.target.files[0].name;
+                                this.mobileprovision = params.target.files[0];
+                            } else {
+                                this.mobCss = 'is-invalid';
+                                this.mobText = 'Chọn file .mobileprovision ở nút "CHỌN" bên kia';
+                                this.mobileprovision = '';
+                            }
+                            break;
+                    }
+                },
+                upload: function () {
+                    let that = this;
+                    var refs = this.$refs;
+                    var keys = Object.keys(refs);
+
+                    for (var i = 0; i < Object.keys(refs).length; i++) {
+                        if (refs[keys[i]].ariaRequired && !refs[keys[i]].value) {
+                            refs[keys[i]].focus();
+                            return false;
+                        }
+                    }
+
+                    // 文件上传
+                    this.showStep1 = false;
+                    this.showStep2 = true;
+                    var formData = new FormData();
+                    formData.append("ipa", this.ipa);
+                    formData.append("p12", this.p12);
+                    formData.append("name", this.name);
+                    formData.append("password", this.password);
+                    formData.append("unlock", this.unlockValue);
+                    formData.append("identifier", this.identifier);
+                    formData.append("mobileprovision", this.mobileprovision);
+                    let config = {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        },
+                        onUploadProgress: (progressEvent) => {
+                            // 使用本地 progress 事件
+                            if (progressEvent.lengthComputable) {
+                                let num = Math.round((progressEvent.loaded / progressEvent.total) * 100)
+                                this.progressBar = num // 使用某种 UI 进度条组件会用到的百分比
+                            }
+                        }
+                    }
+
+                    axios.post(uploadUrl, formData, config).then((response) => {
+                        if(response.data.code==0){
+                            // 上传完成，开始签名
+                            that.showStep2 = false;
+                            that.showStep3 = true;
+                            let data = response.data.data;
+
+                            this.status(data);
+
+                        } else {
+                            alert('Please check the certificate password');
+                        }
+                    }).catch(function (error) {
+                        alert(error);
+                    });
+                },
+                status: function(params) {
+                    let that = this;
+                    var signData = new FormData();
+                    signData.append("uuid", params.uuid);
+                    signData.append("time", params.time);
+
+                    let headers = {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    }
+
+                    axios.post(checkUrl, signData, headers).then((response) => {
+                        if (response.data.code == 0) {
+                            // 签名成功
+                            this.showStep3 = false;
+                            this.showStep4 = true;
+
+                            that.download = downloadUrl + '/' + params.uuid + '/' + params.time;
+                            that.download_ipa = storageUrl + '/' + params.time + '/' + params.uuid + '/' + 'resign_' + params.time + '.ipa'
+                            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                                width : 100,
+                                height : 100
+                            });
+                            qrcode.makeCode(that.download);
+                        } else if (response.data.code == 1) {
+                            console.info("签名中");
+                            setTimeout("this.status()","3000");
+                            const timer = setInterval(() => {
+                                clearInterval(timer)
+                                this.status(params);
+                            }, 3000)
+                        } else {
+                            alert("Signature failed");
+                            return;
+                        }
+                    });
+                },
+                close: function () {
+                    this.show = false;
+                },
+                index: function () {
+                    location.reload();
+                }
+            },
+            watch: {
+                password: function (params) {
+                    if (params.length > 0) {
+                        this.pwdCss = 'is-valid';
+                    } else {
+                        this.pwdCss = 'is-invalid';
+                    }
+                },
+            },
+        })
+        
+    </script>
+    <script id="rendered-js">
+        const COPY = document.querySelector('#copy');
+        const PASTE = document.querySelector('#paste');
+        const KEY = document.querySelector('#key');
+        const VALUE = document.querySelector('#value');
+        
+        COPY.addEventListener('click', () => {
+          navigator.clipboard.writeText(KEY.value);
+        });
+        
+        PASTE.addEventListener('click', () => {
+          navigator.clipboard.readText().then(v => VALUE.value = v);
+        });
+            </script>
+</body>
+</html>
