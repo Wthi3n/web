@@ -216,6 +216,10 @@
     box-shadow: none;
     transform: scale(0.98);
   }
+  .video {
+  border-radius: 20px;
+  width: 30%;
+  }
   
   
   
