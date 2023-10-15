@@ -126,17 +126,23 @@
     }
   }
   .button2 {
-    cursor: pointer;
     position: relative;
-    padding: 10px 24px;
-    font-size: 18px;
-    color: rgb(197, 223, 248);
-    border: 2px solid rgb(197, 223, 248);
-    border-radius: 34px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    padding-block: 0.5rem;
+    padding-inline: 1.25rem;
     background-color: transparent;
-    font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffff;
+    gap: 10px;
+    font-weight: bold;
+    border: 3px solid #ffffff4d;
+    outline: none;
     overflow: hidden;
+    font-size: 15px;
   }
   
   .button2::before {
