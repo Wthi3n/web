@@ -1952,8 +1952,8 @@ pre code {
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px
+    margin-right: -1px;
+    margin-left: -1px
 }
 
 .no-gutters {
@@ -4985,7 +4985,7 @@ input[type=button].btn-block,input[type=reset].btn-block,input[type=submit].btn-
     vertical-align: middle;
     background: #fff url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center/8px 10px;
     border: 1px solid #ced4da;
-    border-radius: .25rem;
+    border-radius: .100rem;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none
