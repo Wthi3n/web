@@ -184,6 +184,8 @@
     font-size: 1.2em;
     font-weight: 550;
     color: #F1D4E5;
+    text-align: center;
+    padding-top: 12px;
   }
   
   .buttoncheck:hover {
@@ -1062,14 +1064,295 @@
   visibility: visible;
   transform: scale(100) translateX(2px);
 }
+.downapp {
+  margin-left: -1rem;
+  margin-right: -1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-bottom: 2rem;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.25rem;
+  background-color: rgba(17, 24, 39, 1);
+  padding: 1.5rem;
+}
+
+.headerdownapp {
+  display: flex;
+  flex-direction: column;
+}
+
+.titledownapp {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  color: #fff
+}
+
+.pricedownapp {
+  font-size: 3.75rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #fff
+}
+
+.descdownapp {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.625;
+  color: rgba(156, 163, 175, 1);
+}
+
+.listsdownapp {
+  margin-bottom: 1.5rem;
+  flex: 1 1 0%;
+  color: rgba(156, 163, 175, 1);
+}
+
+.listsdownapp .listdownapp {
+  margin-bottom: 0.5rem;
+  display: flex;
+  margin-left: 0.5rem
+}
+
+.listsdownapp .listdownapp svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+  color: rgba(167, 139, 250, 1);
+}
+
+.actiondownapp {
+  border: 1px;
+  outline: none;
+  display: inline-block;
+  border-radius: 0.25rem;
+  background-color: rgba(167, 139, 250, 1);
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(17, 24, 39, 1);
+}
+.footerdown{
+  padding: 0.75rem;
+  z-index: 10000;
+  border: 1px solid rgb(236 239 241);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 140, 255, 0.082);
+  bottom: 0;
+  left:0;
+}
+.buttondownapp {
+  border: 0;
+  border-radius: 100px;
+  background-color: #2ba8fb;
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  font-weight: 100;
+  height: 35px;
+  margin-left: 5px;
+  width: 150px;
+  font-size: large;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+.buttondownapp:hover {
+  background-color: #6fc5ff;
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+.buttondownapp:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+.buttondownapp2 {
+  display: inline-block;
+  border-radius: 50px;
+  border: none;
+  background: #1875FF;
+  color: white;
+  font-family: inherit;
+  text-align: center;
+  font-size: 13px;
+  box-shadow: 0px 14px 56px -11px #1875FF;
+  width: 90%;
+  height: 50px;
+  padding: 1em;
+  transition: all 0.4s;
+  cursor: pointer;
+  font-size: 15px;
+ }
+ 
+ .buttondownapp2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+  transform: scale(1.1);
+ }
+ 
+ .buttondownapp2 span:after {
+  content: 'my app';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.7s;
+  transform: scale(1.1);
+ }
+ 
+ .buttondownapp2:hover span {
+  padding-right: 3.55em;
+  transform: scale(1.1);
+ }
+ 
+ .buttondownapp2:hover span:after {
+  opacity: 4;
+  right: 0;
+  transform: scale(1.1);
+ }
+ .back-to-top {
   
-  
-  
-  
-  
-  
-  
-  
+  right: 2rem;
+  bottom: 2rem;
+  border-radius: 100%;
+  background: #141c38;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  opacity: 100%;
+  transition: opacity 0.5s;
+}
+
+.back-to-top:hover {
+  opacity: 60%;
+}
+
+.hiddenback {
+  opacity: 0%;
+}
+
+.back-to-top-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #7ac9f9;
+}
+
+.progress-barback {
+  height: 1rem;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.buttonesign {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+ }
+ 
+ .buttonesign.learn-more {
+  width: 17rem;
+  height: auto;
+ }
+ 
+ .buttonesign.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #2ba8fb;
+  border-radius: 1.625rem;
+ }
+ 
+ .buttonesign.learn-more .circle .iconesign {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+ }
+ 
+ .buttonesign.learn-more .circle .iconesign.arrowesign {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+ }
+ 
+ .buttonesign.learn-more .circle .iconesign.arrowesign::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+ }
+ 
+ .buttonesign.learn-more .button-textesign {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: white;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+ }
+ 
+ .buttonesign:hover .circle {
+  width: 100%;
+ }
+ 
+ .buttonesign:hover .circle .iconesign.arrowesign {
+  background: #fff;
+  transform: translate(1rem, 0);
+ }
+ 
+ .buttonesign:hover .button-textesign {
+  color: #fff;
+ }
+
+
+
   
 
 
